@@ -16,11 +16,12 @@ export const createAccount: RequestHandler = async (req, res, next) => {
 
   const user = await UserModel.create(req.body);
   res.status(201).json({ data: user });
+  next();
 };
 
 // Login user
 
-export const loginAccount: RequestHandler = (req, res, next) => {
+export const loginAccount: RequestHandler = (req, res) => {
   UserModel.findOne({
     email: req.body.email,
     password: req.body.password,

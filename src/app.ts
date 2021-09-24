@@ -1,21 +1,18 @@
-import express, { Request, Response, NextFunction } from "express";
+import express from "express";
 import bankRoutes from "./routes/bank";
 import { json } from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
+import logger from "./middleware/logger";
 
 const app = express();
 
 app.use(cors());
 app.use(json()); // json middelware to parse json data
+app.use(logger);
 
 app.use("/bank", bankRoutes);
 
-// Error handling Middleware
-
-// app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-//   res.status(500).json({ message: err.message });
-// });
 
 const PORT = 7000;
 const CONNECTION_URL =

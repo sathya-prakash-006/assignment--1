@@ -18,10 +18,11 @@ const createAccount = async (req, res, next) => {
     });
     const user = await createAccount_model_1.default.create(req.body);
     res.status(201).json({ data: user });
+    next();
 };
 exports.createAccount = createAccount;
 // Login user
-const loginAccount = (req, res, next) => {
+const loginAccount = (req, res) => {
     createAccount_model_1.default.findOne({
         email: req.body.email,
         password: req.body.password,
