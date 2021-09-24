@@ -14,7 +14,7 @@
 }
 
 - If user email already exist then will get response as "user already exist"
--  If password and confirmpassword no same then response is "Password and confirm password not matching"
+-  If password and confirmpassword are same then response is "Password and confirm password not matching"
 -   If Register successful then user will get success message and token.
 
 
