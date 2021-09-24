@@ -30,4 +30,4 @@
     
 }
 
-- If email and password not coorect then response : "username or password in incorrect"
+- If email and password not corect then response : "username or password in incorrect"
