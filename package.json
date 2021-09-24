@@ -1,0 +1,25 @@
+{
+  "name": "assignment-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sathya-prakash-006/assignment-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sathya-prakash-006/assignment-1/issues"
+  },
+  "homepage": "https://github.com/sathya-prakash-006/assignment-1#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.7",
+    "typescript": "^4.4.3"
+  }
+}
