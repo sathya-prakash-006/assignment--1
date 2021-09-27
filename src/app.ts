@@ -1,5 +1,6 @@
 import express from "express";
 import userRoutes from "./routes/user-routes";
+import summaryRoutes from './routes/summary-routes'
 import { json } from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -12,6 +13,7 @@ app.use(json()); // json middelware to parse json data
 app.use(logger);
 
 app.use("/user", userRoutes);
+app.use("/bank", summaryRoutes);
 
 const PORT = 8000;
 const CONNECTION_URL =

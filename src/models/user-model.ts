@@ -9,6 +9,7 @@ interface User {
   password: string;
   confirmpassword: string;
   createdAt: any;
+  
 }
 
 const createAccount = new mongoose.Schema<User>({
