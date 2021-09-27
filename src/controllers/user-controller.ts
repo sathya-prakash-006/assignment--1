@@ -51,8 +51,8 @@ export const signup: RequestHandler = async (req, res) => {
       return res.status(400).json({ message: "User already exists" });
 
     // if the password and confirm password matching or not
-    // if (password !== confirmpassword)
-    //   return res.status(404).json({ message: "Password don't match." });
+    if (password !== confirmpassword)
+      return res.status(404).json({ message: "Password don't match." });
 
     // Hashing the password
     const hashedPassword = await bcrypt.hash(password, 12);

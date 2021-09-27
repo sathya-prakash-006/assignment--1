@@ -39,8 +39,8 @@ const signup = async (req, res) => {
         if (oldUser)
             return res.status(400).json({ message: "User already exists" });
         // if the password and confirm password matching or not
-        // if (password !== confirmpassword)
-        //   return res.status(404).json({ message: "Password don't match." });
+        if (password !== confirmpassword)
+            return res.status(404).json({ message: "Password don't match." });
         // Hashing the password
         const hashedPassword = await bcryptjs_1.default.hash(password, 12);
         const result = await user_model_1.default.create({
