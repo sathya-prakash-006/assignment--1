@@ -15,7 +15,7 @@ const signin = async (req, res) => {
         //checking user is already exist or not
         const existingUser = await user_model_1.default.findOne({ email });
         if (!existingUser)
-            return res.status(404).json({ message: "User doesn't exost." });
+            return res.status(404).json({ message: "User doesn't exist." });
         // comparing entered password and the password
         const isPasswordCorrect = await bcryptjs_1.default.compare(password, existingUser.password);
         if (!isPasswordCorrect)

@@ -2,6 +2,7 @@ import { RequestHandler } from "express";
 import UserModel from "../models/user-model";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { body, validationResult } from "express-validator";
 
 const secret = "test";
 
@@ -14,7 +15,7 @@ export const signin: RequestHandler = async (req, res) => {
     const existingUser = await UserModel.findOne({ email });
 
     if (!existingUser)
-      return res.status(404).json({ message: "User doesn't exost." });
+      return res.status(404).json({ message: "User doesn't exist." });
 
     // comparing entered password and the password
     const isPasswordCorrect = await bcrypt.compare(
@@ -53,6 +54,7 @@ export const signup: RequestHandler = async (req, res) => {
     // if the password and confirm password matching or not
     if (password !== confirmpassword)
       return res.status(404).json({ message: "Password don't match." });
+
 
     // Hashing the password
     const hashedPassword = await bcrypt.hash(password, 12);

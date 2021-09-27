@@ -32,7 +32,7 @@ export const getAvailableService: RequestHandler = async (req, res) => {
 // get current services based on  id
 
 export const getAvailableServiceById: RequestHandler = async (req, res) => {
-  const id = req.params
+  const id = req.params;
   try {
     const availableService = await AvailableService.find({
       author: { $eq: id },
