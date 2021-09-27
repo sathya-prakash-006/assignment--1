@@ -7,6 +7,7 @@ exports.signup = exports.signin = void 0;
 const user_model_1 = __importDefault(require("../models/user-model"));
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const express_validator_1 = require("express-validator");
 const secret = "test";
 // SIGN IN
 const signin = async (req, res) => {
@@ -34,6 +35,11 @@ exports.signin = signin;
 const signup = async (req, res) => {
     const { fullname, date, email, password, confirmpassword } = req.body;
     try {
+        //error validation
+        const errors = (0, express_validator_1.validationResult)(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ message: errors.array() });
+        }
         // checking user is already exist or not
         const oldUser = await user_model_1.default.findOne({ email });
         if (oldUser)

@@ -2,6 +2,7 @@ import { RequestHandler } from "express";
 import UserModel from "../models/user-model";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { validationResult } from "express-validator";
 
 const secret = "test";
 
@@ -44,6 +45,14 @@ export const signup: RequestHandler = async (req, res) => {
   const { fullname, date, email, password, confirmpassword } = req.body;
 
   try {
+    //error validation
+
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ message: errors.array() });
+    }
+
     // checking user is already exist or not
     const oldUser = await UserModel.findOne({ email });
 
