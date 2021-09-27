@@ -8,12 +8,8 @@ const createAccount = new mongoose_1.default.Schema({
     fullname: { type: String, required: true },
     date: { type: String, required: true },
     email: { type: String, required: true },
-    password: { type: String, required: true },
-    confirmpassword: { type: String, required: true },
-    createdAt: {
-        type: Date,
-        default: new Date(),
-    },
+    password: { type: String },
+    confirmpassword: { type: String },
 });
-const UserModel = mongoose_1.default.model("bankUser", createAccount);
+const UserModel = mongoose_1.default.model("User", createAccount);
 exports.default = UserModel;

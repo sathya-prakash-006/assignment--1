@@ -1,5 +1,5 @@
 import express from "express";
-import bankRoutes from "./routes/bank";
+import userRoutes from "./routes/user-routes";
 import { json } from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -11,12 +11,11 @@ app.use(cors());
 app.use(json()); // json middelware to parse json data
 app.use(logger);
 
-app.use("/bank", bankRoutes);
+app.use("/user", userRoutes);
 
-
-const PORT = 7000;
+const PORT = 8000;
 const CONNECTION_URL =
-  "mongodb+srv://sathya06:sathya06@cluster0.cunjy.mongodb.net/memories-app?retryWrites=true&w=majority";
+  "mongodb+srv://perennialsys:perennialsys@cluster0.icoae.mongodb.net/bank?retryWrites=true&w=majority";
 
 // connection with mongodb
 mongoose
