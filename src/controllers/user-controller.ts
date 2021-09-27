@@ -2,7 +2,6 @@ import { RequestHandler } from "express";
 import UserModel from "../models/user-model";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { body, validationResult } from "express-validator";
 
 const secret = "test";
 
@@ -55,7 +54,6 @@ export const signup: RequestHandler = async (req, res) => {
     if (password !== confirmpassword)
       return res.status(404).json({ message: "Password don't match." });
 
-
     // Hashing the password
     const hashedPassword = await bcrypt.hash(password, 12);
 
@@ -76,3 +74,5 @@ export const signup: RequestHandler = async (req, res) => {
     res.status(500).json({ message: "Something went wrong" });
   }
 };
+
+/************************************************************************************************************* */

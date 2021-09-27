@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAvailableServiceById = exports.getAvailableService = exports.createAvailableService = void 0;
 const availableService_model_1 = __importDefault(require("../models/availableService-model"));
-// craeting current services
+// craeting available  services
 const createAvailableService = async (req, res) => {
     try {
         const availableService = await availableService_model_1.default.create(req.body);
@@ -17,7 +17,7 @@ const createAvailableService = async (req, res) => {
 };
 exports.createAvailableService = createAvailableService;
 /************************************************************************************************************* */
-// Get all the users current services
+// Get all the users available services
 const getAvailableService = async (req, res) => {
     try {
         const availableService = await availableService_model_1.default.find()
@@ -32,7 +32,7 @@ const getAvailableService = async (req, res) => {
 };
 exports.getAvailableService = getAvailableService;
 /************************************************************************************************************* */
-// get current services based on  id
+// get available services based on  id
 const getAvailableServiceById = async (req, res) => {
     const id = req.params;
     try {

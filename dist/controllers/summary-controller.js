@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getSummaryById = exports.getSummary = exports.createSummary = void 0;
 const summary_models_1 = __importDefault(require("../models/summary-models"));
-// craeting summary
+// creating summary
 const createSummary = async (req, res) => {
     const { accountNumber, income, spends } = req.body;
     try {

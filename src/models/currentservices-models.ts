@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-interface User {
+interface Current {
   currentAccount: [
     {
       url: string;
@@ -23,7 +23,7 @@ interface User {
   author: any;
 }
 
-const createCurrentServices = new mongoose.Schema<User>({
+const createCurrentServices = new mongoose.Schema<Current>({
   currentAccount: [
     {
       url: { type: String, required: true },
@@ -50,7 +50,7 @@ const createCurrentServices = new mongoose.Schema<User>({
   },
 });
 
-const CurrentService = mongoose.model<User>(
+const CurrentService = mongoose.model<Current>(
   "CurrentServices",
   createCurrentServices
 );

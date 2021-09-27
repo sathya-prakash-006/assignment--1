@@ -2,7 +2,7 @@ import { RequestHandler } from "express";
 import UserSummary from "../models/summary-models";
 import UserModel from "../models/user-model";
 
-// craeting summary
+// creating summary
 
 export const createSummary: RequestHandler = async (req, res) => {
   const { accountNumber, income, spends } = req.body;

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-interface User {
+interface Available {
   wallet: [
     {
       url: string;
@@ -29,7 +29,7 @@ interface User {
   author: any;
 }
 
-const createAvailableServices = new mongoose.Schema<User>({
+const createAvailableServices = new mongoose.Schema<Available>({
   wallet: [
     {
       url: { type: String, required: true },
@@ -62,7 +62,7 @@ const createAvailableServices = new mongoose.Schema<User>({
   },
 });
 
-const AvailableService = mongoose.model<User>(
+const AvailableService = mongoose.model<Available>(
   "AvailableServices",
   createAvailableServices
 );

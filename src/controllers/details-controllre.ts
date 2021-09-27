@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import Details from "../models/details-model";
 
-// craeting tranactions
+// creating tranactions
 
 export const createDetails: RequestHandler = async (req, res) => {
   try {
@@ -31,7 +31,10 @@ export const getDetails: RequestHandler = async (req, res) => {
 export const getDetailsById: RequestHandler = async (req, res) => {
   const id = req.params.id;
   try {
-    const details = await Details.find({ author: { $eq: id } }).populate("author").lean().exec();
+    const details = await Details.find({ author: { $eq: id } })
+      .populate("author")
+      .lean()
+      .exec();
 
     return res.status(200).json({ data: details });
   } catch (error) {

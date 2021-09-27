@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getDetailsById = exports.getDetails = exports.createDetails = void 0;
 const details_model_1 = __importDefault(require("../models/details-model"));
-// craeting tranactions
+// creating tranactions
 const createDetails = async (req, res) => {
     try {
         const details = await details_model_1.default.create(req.body);
@@ -33,7 +33,10 @@ exports.getDetails = getDetails;
 const getDetailsById = async (req, res) => {
     const id = req.params.id;
     try {
-        const details = await details_model_1.default.find({ author: { $eq: id } }).populate("author").lean().exec();
+        const details = await details_model_1.default.find({ author: { $eq: id } })
+            .populate("author")
+            .lean()
+            .exec();
         return res.status(200).json({ data: details });
     }
     catch (error) {

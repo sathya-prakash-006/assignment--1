@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getRatingById = exports.getRating = exports.createRating = void 0;
 const rating_model_1 = __importDefault(require("../models/rating-model"));
-// craeting rating
+// creating rating
 const createRating = async (req, res) => {
     try {
         const rating = await rating_model_1.default.create(req.body);
@@ -29,7 +29,7 @@ const getRating = async (req, res) => {
 };
 exports.getRating = getRating;
 /************************************************************************************************************* */
-// get summary based on user id
+// get rating based on user id
 const getRatingById = async (req, res) => {
     const id = req.params.id;
     try {

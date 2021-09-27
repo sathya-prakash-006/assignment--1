@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import AvailableService from "../models/availableService-model";
 
-// craeting current services
+// craeting available  services
 
 export const createAvailableService: RequestHandler = async (req, res) => {
   try {
@@ -13,7 +13,7 @@ export const createAvailableService: RequestHandler = async (req, res) => {
 };
 /************************************************************************************************************* */
 
-// Get all the users current services
+// Get all the users available services
 export const getAvailableService: RequestHandler = async (req, res) => {
   try {
     const availableService = await AvailableService.find()
@@ -29,7 +29,7 @@ export const getAvailableService: RequestHandler = async (req, res) => {
 
 /************************************************************************************************************* */
 
-// get current services based on  id
+// get available services based on  id
 
 export const getAvailableServiceById: RequestHandler = async (req, res) => {
   const id = req.params;

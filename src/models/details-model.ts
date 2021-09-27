@@ -6,7 +6,7 @@ interface Details {
   amount: number;
   status: string;
   action: string;
-  author: any
+  author: any;
 }
 
 const createDetails = new mongoose.Schema<Details>({

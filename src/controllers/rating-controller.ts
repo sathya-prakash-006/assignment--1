@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import RatingModel from "../models/rating-model";
 
-// craeting rating
+// creating rating
 
 export const createRating: RequestHandler = async (req, res) => {
   try {
@@ -26,7 +26,7 @@ export const getRating: RequestHandler = async (req, res) => {
 
 /************************************************************************************************************* */
 
-// get summary based on user id
+// get rating based on user id
 
 export const getRatingById: RequestHandler = async (req, res) => {
   const id = req.params.id;
