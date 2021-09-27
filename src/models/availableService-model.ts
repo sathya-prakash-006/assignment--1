@@ -4,25 +4,25 @@ interface Available {
   wallet: [
     {
       url: string;
-      available: true;
+      available: boolean;
     }
   ];
   investment: [
     {
       url: string;
-      available: true;
+      available: boolean;
     }
   ];
   taxPayment: [
     {
       url: string;
-      available: true;
+      available: boolean;
     }
   ];
   loans: [
     {
       url: string;
-      available: true;
+      available: boolean;
     }
   ];
 

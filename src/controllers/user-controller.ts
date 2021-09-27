@@ -4,8 +4,9 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { validationResult } from "express-validator";
 
-const secret = "test";
 
+
+const secret = "test";
 // SIGN IN
 
 export const signin: RequestHandler = async (req, res) => {

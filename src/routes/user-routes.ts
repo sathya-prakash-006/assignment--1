@@ -8,20 +8,11 @@ const router = Router();
 
 router.post(
   "/signup",
-  body("fullname").isLength({ min: 1 }),
-  body("email").isEmail(),
-  body("password").isLength({ min: 6 }),
+  body("fullname").isLength({ min: 3 }).withMessage("name should be length greater than 3"),
+  body("email").isEmail().withMessage("Must be valid email address"),
+  body("password").isLength({ min: 6 }).withMessage("Must be at least 6 characters"),
   signup
 );
 router.post("/signin", signin);
 
 export default router;
-
-// interface User {
-//     fullname: string;
-//     date: string;
-//     email: string;
-//     password: string;
-//     confirmpassword: string;
-//     createdAt: any;
-//   }

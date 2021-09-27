@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import AvailableService from "../models/availableService-model";
 
-// craeting available  services
+// creating available  services
 
 export const createAvailableService: RequestHandler = async (req, res) => {
   try {

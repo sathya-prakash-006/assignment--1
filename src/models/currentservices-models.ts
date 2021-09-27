@@ -4,19 +4,19 @@ interface Current {
   currentAccount: [
     {
       url: string;
-      available: true;
+      available: boolean;
     }
   ];
   payroll: [
     {
       url: string;
-      available: true;
+      available: boolean;
     }
   ];
   payments: [
     {
       url: string;
-      available: true;
+      available: boolean;
     }
   ];
 
