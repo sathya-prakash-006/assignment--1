@@ -7,7 +7,6 @@ import {
 
 const router = Router();
 
-// CREATE ACCOUNT AND LOGIN
 
 router.post("/summary", createSummary);
 router.get("/summary", getSummary);

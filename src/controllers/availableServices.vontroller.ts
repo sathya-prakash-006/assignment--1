@@ -1,0 +1,45 @@
+import { RequestHandler } from "express";
+import AvailableService from "../models/availableService-model";
+
+// craeting current services
+
+export const createAvailableService: RequestHandler = async (req, res) => {
+  try {
+    const availableService = await AvailableService.create(req.body);
+    return res.status(201).json({ data: availableService });
+  } catch (error: any) {
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};
+/************************************************************************************************************* */
+
+// Get all the users current services
+export const getAvailableService: RequestHandler = async (req, res) => {
+  try {
+    const availableService = await AvailableService.find()
+      .populate("author")
+      .lean()
+      .exec();
+
+    return res.status(200).json({ data: availableService });
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};
+
+/************************************************************************************************************* */
+
+// get current services based on  id
+
+export const getAvailableServiceById: RequestHandler = async (req, res) => {
+  try {
+    const availableService = await AvailableService.findById(req.params.id)
+      .populate("author")
+      .lean()
+      .exec();
+
+    return res.status(200).json({ data: availableService });
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};

@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
 
-// Create USER model
-
 interface User {
   accountNumber: number;
   income: number;
