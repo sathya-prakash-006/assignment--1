@@ -4,21 +4,22 @@ import summaryRoutes from "./routes/summary-routes";
 import { json } from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
-import logger from "./middleware/logger";
 import currentServices from "./routes/currentServices-routes";
-import availableservices  from "./routes/availableServices-routes";
-
+import availableservices from "./routes/availableServices-routes";
+import details from "./routes/details-routes";
 
 const app = express();
 
 app.use(cors());
 app.use(json()); // json middelware to parse json data
-app.use(logger);
+
+
 
 app.use("/user", userRoutes);
 app.use("/bank", summaryRoutes);
 app.use("/bank", currentServices);
-app.use("/bank", availableservices)
+app.use("/bank", availableservices);
+app.use("/details", details);
 
 const PORT = 8000;
 const CONNECTION_URL =

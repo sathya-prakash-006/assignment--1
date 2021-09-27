@@ -34,8 +34,11 @@ exports.getAvailableService = getAvailableService;
 /************************************************************************************************************* */
 // get current services based on  id
 const getAvailableServiceById = async (req, res) => {
+    const id = req.params;
     try {
-        const availableService = await availableService_model_1.default.findById(req.params.id)
+        const availableService = await availableService_model_1.default.find({
+            author: { $eq: id },
+        })
             .populate("author")
             .lean()
             .exec();

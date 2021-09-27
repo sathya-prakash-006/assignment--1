@@ -55,27 +55,3 @@ const CurrentService = mongoose.model<User>(
   createCurrentServices
 );
 export default CurrentService;
-
-// interface User {
-//   currentAccount: boolean;
-//   payroll: boolean;
-//   payments: boolean;
-//   author: any;
-// }
-
-// const createCurrentServices = new mongoose.Schema<User>({
-//   currentAccount: { type: Boolean, required: true },
-//   payroll: { type: Boolean, required: true },
-//   payments: { type: Boolean, required: true },
-//   author: {
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: "User",
-//     required: true,
-//   },
-// });
-
-// const CurrentService = mongoose.model<User>(
-//   "CurrentServices",
-//   createCurrentServices
-// );
-// export default CurrentService;

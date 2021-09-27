@@ -37,8 +37,9 @@ export const getSummary: RequestHandler = async (req, res) => {
 // get summary based on user id
 
 export const getSummaryById: RequestHandler = async (req, res) => {
+  const id = req.params.id;
   try {
-    const summary = await UserSummary.findById(req.params.id)
+    const summary = await UserSummary.findById({ author: { $eq: id } })
       .populate("author")
       .lean()
       .exec();

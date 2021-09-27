@@ -7,7 +7,6 @@ import {
 
 const router = Router();
 
-
 router.post("/summary", createSummary);
 router.get("/summary", getSummary);
 router.get("/summary/:id", getSummaryById);

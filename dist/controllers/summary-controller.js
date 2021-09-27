@@ -36,8 +36,9 @@ exports.getSummary = getSummary;
 /************************************************************************************************************* */
 // get summary based on user id
 const getSummaryById = async (req, res) => {
+    const id = req.params.id;
     try {
-        const summary = await summary_models_1.default.findById(req.params.id)
+        const summary = await summary_models_1.default.findById({ author: { $eq: id } })
             .populate("author")
             .lean()
             .exec();

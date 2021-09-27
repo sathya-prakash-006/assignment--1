@@ -32,8 +32,9 @@ export const getCurrentService: RequestHandler = async (req, res) => {
 // get current services based on  id
 
 export const getCurrentServiceById: RequestHandler = async (req, res) => {
+  const id = req.params.id;
   try {
-    const currentService = await CurrentService.findById(req.params.id)
+    const currentService = await CurrentService.find({ author: { $eq: id } })
       .populate("author")
       .lean()
       .exec();
