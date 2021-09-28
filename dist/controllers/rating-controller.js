@@ -5,9 +5,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getRatingById = exports.getRating = exports.createRating = void 0;
 const rating_model_1 = __importDefault(require("../models/rating-model"));
+const express_validator_1 = require("express-validator");
 // creating rating
 const createRating = async (req, res) => {
     try {
+        //validation number should be range 1 to 5
+        const errors = (0, express_validator_1.validationResult)(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ message: errors.array() });
+        }
         const rating = await rating_model_1.default.create(req.body);
         return res.status(201).json({ data: rating });
     }

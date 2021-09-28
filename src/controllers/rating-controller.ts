@@ -1,10 +1,19 @@
 import { RequestHandler } from "express";
 import RatingModel from "../models/rating-model";
+import { validationResult } from "express-validator";
 
 // creating rating
 
 export const createRating: RequestHandler = async (req, res) => {
   try {
+    //validation number should be range 1 to 5
+
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ message: errors.array() });
+    }
+
     const rating = await RatingModel.create(req.body);
     return res.status(201).json({ data: rating });
   } catch (error: any) {

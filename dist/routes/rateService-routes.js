@@ -2,8 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const rating_controller_1 = require("../controllers/rating-controller");
+const express_validator_1 = require("express-validator");
 const router = (0, express_1.Router)();
-router.post("/rating", rating_controller_1.createRating);
+router.post("/rating", (0, express_validator_1.body)("rating").isInt({ min: 1, max: 5 }).withMessage("Should be 1 to 5"), rating_controller_1.createRating);
 router.get("/rating", rating_controller_1.getRating);
 router.get("/rating/:id", rating_controller_1.getRatingById);
 exports.default = router;

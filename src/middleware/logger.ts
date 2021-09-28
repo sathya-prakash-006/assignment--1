@@ -1,12 +1,13 @@
 // import jwt from "jsonwebtoken";
+// import { RequestHandler } from "express";
 
-// const auth = async (req, res, next) => {
+// const auth: RequestHandler = async (req, res, next) => {
 //   try {
 //     const token = req.headers.authorization?.split(" ")[1];
-//     let decodedData;
+//     let decodedData: any;
 //     if (token) {
 //       decodedData = jwt.verify(token, "test");
-//       req.userId = decodedData?.id;
+//       // req.userId = decodedData?.id;
 //     }
 //     next();
 //   } catch (error) {
@@ -14,6 +15,6 @@
 //   }
 // };
 
-// export default auth
+// export default auth;
 
-// click on button => auth middleware () => 
+// click on button => auth middleware () =>
